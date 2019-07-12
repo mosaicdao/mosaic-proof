@@ -45,6 +45,7 @@ class ProofGenerator {
    * @param address Address of ethereum account for which proof needs to be generated.
    * @param keys Array of keys of mapping in solidity.
    * @param blockNumber Block number in hex.
+   * @param messageInboxOffset Message bus inbox offset.
    * @return Promise that resolves to proof object.
    */
   public async getInboxProof(
@@ -67,6 +68,7 @@ class ProofGenerator {
    * @param address Address of ethereum account for which proof needs to be generated.
    * @param keys Array of keys for a mapping in solidity.
    * @param blockNumber Block number in hex.
+   * @param messageOutboxOffset Message bus outbox offset.
    * @return Promise that resolves to proof object.
    */
   public async getOutboxProof(
