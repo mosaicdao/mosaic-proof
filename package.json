@@ -1,0 +1,28 @@
+{
+  "name": "@openst/mosaic-proof",
+  "version": "0.1.0-alpha.1",
+  "description": "The mosaic proof is a tool to generate merkle proofs. The proof data can be used to prove the account and storage state of one blockchain to another blockchain. This will be useful to facilitate asynchronous message passing between blockchains.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenST/mosaic-proof.git"
+  },
+  "keywords": [
+    "Merkel proof",
+    "Proof generator",
+    "Facilitator",
+    "OpenST",
+    "OST",
+    "Mosaic",
+    "Simple Token",
+    "Token Economy",
+    "web3",
+    "Ethereum",
+    "EIP20"
+  ],
+  "author": "OpenST Ltd.",
+  "license": "Apache v2.0",
+  "bugs": {
+    "url": "https://github.com/OpenST/mosaic-proof/issues"
+  },
+  "homepage": "https://github.com/OpenST/mosaic-proof#readme"
+}
