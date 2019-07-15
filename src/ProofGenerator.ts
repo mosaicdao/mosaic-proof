@@ -13,16 +13,15 @@
 // limitations under the License.
 
 import Web3 from 'web3';
-import { GetProof } from 'web3-eth';
 import * as Web3Utils from 'web3-utils';
 
 const RLP = require('rlp');
 
 // This is the position of message outbox defined in GatewayBase.sol
-const MESSAGE_OUTBOX_OFFSET = '7';
+const MESSAGE_OUTBOX_OFFSET = '9';
 
 // This is the position of message inbox defined in GatewayBase.sol
-const MESSAGE_INBOX_OFFSET = '8';
+const MESSAGE_INBOX_OFFSET = 'a';
 
 class ProofGenerator {
   /** Web3 object for source blockchain */
@@ -140,10 +139,10 @@ class ProofGenerator {
         address,
         storageKeys,
         blockNumber,
-        (error: Error, result: GetProof): void => {
+        (error: Error, result: Object): void => {
           if (result) {
             try {
-              const proofData = result.result as ProofData;
+              const proofData = result as ProofData;
 
               proofData.serializedAccountProof = ProofGenerator.serializeProof(
                 proofData.accountProof,
@@ -187,7 +186,6 @@ class ProofGenerator {
     }
 
     path = `${path}${Web3Utils.padLeft(storageIndex, 64)}`;
-    // TODO: Deepesh check here can be an issue.
     path = Web3Utils.sha3(path);
 
     return path;
