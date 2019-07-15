@@ -1,7 +1,7 @@
 {
   "name": "@openst/mosaic-proof",
   "version": "0.1.0-alpha.1",
-  "description": "The mosaic proof is a tool to generate merkle proofs. The proof data can be used to prove the account and storage state of one blockchain to another blockchain. This will be useful to facilitate asynchronous message passing between blockchains.",
+  "description": "Mosaic proof is a tool for generating merkle patricia proof of message that is used by the protocol for message transfers.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpenST/mosaic-proof.git"
