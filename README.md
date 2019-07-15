@@ -2,19 +2,15 @@
 
 Mosaic is a parallelization schema for decentralized applications. 
 It composes heterogeneous blockchain systems into one another. 
-Decentralized applications can use Mosaic to compute over a composed network 
-of multiple blockchain systems in parallel. More details are of mosaic is [here](https://github.com/OpenST/mosaic-contracts/blob/develop/README.md)
+Decentralized applications can use Mosaic to compute over a composed network of multiple blockchain systems in parallel.
+More details on Mosaic [here](https://github.com/OpenST/mosaic-contracts/blob/develop/README.md)
 
-The protocol defines a set of actions that together perform atomic token 
-transfers across two blockchains using gateway contracts. 
+The protocol defines a set of actions that together perform atomic token transfers across two blockchains using gateway contracts. 
 This is done using a 2-phase message passing architecture between the chains.
-This is done with proving Merkle patricia proofs of messages generated from one
-chain to another chain.
+This is done with proving Merkle Patricia proofs of messages generated from one chain to another chain.
  
 
-
-**Mosaic proof** is a tool for generating merkle patricia proof of message 
-that is used by the protocol for message transfers.
+**Mosaic proof** is a tool for generating Merkle Patricia proof of a message that is used by the protocol for message transfers.
  
  ###Usage
 install `@openst/mosaic-proof` package.
