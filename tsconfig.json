@@ -14,9 +14,10 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noErrorTruncation": true,
-        "inlineSourceMap": true,
+        "sourceMap": true,
         "resolveJsonModule": true,
-        "outDir": "./lib"
+        "outDir": "./lib",
+        "declaration": true
     },
     "exclude": [
         "node_modules"

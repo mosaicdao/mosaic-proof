@@ -25,19 +25,14 @@ const MESSAGE_OUTBOX_OFFSET = '9';
 const MESSAGE_INBOX_OFFSET = 'a';
 
 class ProofGenerator {
-  /** Web3 object for source blockchain */
-  public readonly sourceWeb3: Web3;
-
-  /** Web3 object for target blockchain */
-  public readonly targetWeb3: Web3;
+  /** Web3 object for blockchain */
+  public readonly web3: Web3;
 
   /**
-   * @param sourceWeb3 Web3 instance connected to source chain.
-   * @param targetWeb3 Web3 instance connected to target chain.
+   * @param web3 Web3 instance connected to block chain.
    */
-  public constructor(sourceWeb3: Web3, targetWeb3: Web3) {
-    this.sourceWeb3 = sourceWeb3;
-    this.targetWeb3 = targetWeb3;
+  public constructor(web3: Web3) {
+    this.web3 = web3;
   }
 
   /**
@@ -55,7 +50,7 @@ class ProofGenerator {
     messageInboxOffset?: string,
   ): Promise<ProofData> {
     return ProofGenerator.getProof(
-      this.targetWeb3,
+      this.web3,
       messageInboxOffset || MESSAGE_INBOX_OFFSET,
       address,
       keys,
@@ -78,7 +73,7 @@ class ProofGenerator {
     messageOutboxOffset?: string,
   ): Promise<ProofData> {
     return ProofGenerator.getProof(
-      this.sourceWeb3,
+      this.web3,
       messageOutboxOffset || MESSAGE_OUTBOX_OFFSET,
       address,
       keys,
@@ -239,6 +234,4 @@ export interface StorageProof {
   serializedProof: string;
 }
 
-export {
-  ProofGenerator,
-};
+export default ProofGenerator;

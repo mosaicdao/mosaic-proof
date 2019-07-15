@@ -29,7 +29,9 @@
     "lint:ts": "eslint src -c .eslintrc.json --ext ts",
     "lint:ts-fix": "eslint src -c .eslintrc.json --ext ts --fix",
     "compile:ts": "tsc",
-    "test": "tsc -p test/test_tsconfig.json && mocha --recursive --timeout 5000"
+    "clean": "rm -r lib 2> /dev/null || true",
+    "build:package": "npm run prepare:publish && npm pack",
+    "prepare:publish": "npm run clean && npm run compile:ts"
   },
   "dependencies": {
     "@types/web3": "1.0.19",
@@ -41,12 +43,14 @@
     "@typescript-eslint/eslint-plugin": "1.10.2",
     "@typescript-eslint/parser": "1.10.2",
     "@typescript-eslint/typescript-estree": "1.10.2",
-    "@types/mocha": "5.2.7",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.17.3",
-    "eslint-plugin-json": "1.4.0",
-    "mocha": "6.1.4",
-    "chai": "4.2.0"
-  }
+    "eslint-plugin-json": "1.4.0"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "lib"
+  ]
 }
