@@ -1,3 +1,3 @@
-import ProofGenerator from './src/ProofGenerator';
+import ProofGenerator, {ProofData, StorageProof} from './src/ProofGenerator';
 
-export { ProofGenerator };
+export { ProofGenerator, ProofData, StorageProof };
