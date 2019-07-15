@@ -14,6 +14,7 @@
 
 import Web3 from 'web3';
 import * as Web3Utils from 'web3-utils';
+import { GetProof } from 'web3-eth';
 
 const RLP = require('rlp');
 
@@ -139,10 +140,12 @@ class ProofGenerator {
         address,
         storageKeys,
         blockNumber,
-        (error: Error, result: Object): void => {
+        (error: Error, result: GetProof): void => {
           if (result) {
             try {
-              const proofData = result as ProofData;
+              // `as any as` is used here because as per the code, the result
+              // should be of type GetProof, but its returning GetProof.result.
+              const proofData = result as any as ProofData;
 
               proofData.serializedAccountProof = ProofGenerator.serializeProof(
                 proofData.accountProof,
