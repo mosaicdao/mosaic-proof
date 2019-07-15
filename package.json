@@ -1,7 +1,7 @@
 {
   "name": "@openst/mosaic-proof",
   "version": "0.1.0-alpha.1",
-  "description": "The mosaic proof is a tool to generate merkle proofs. The proof data can be used to prove the account and storage state of one blockchain to another blockchain. This will be useful to facilitate asynchronous message passing between blockchains.",
+  "description": "Mosaic proof is a tool for generating merkle patricia proof of message that is used by the protocol for message transfers.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OpenST/mosaic-proof.git"
@@ -24,5 +24,33 @@
   "bugs": {
     "url": "https://github.com/OpenST/mosaic-proof/issues"
   },
-  "homepage": "https://github.com/OpenST/mosaic-proof#readme"
+  "homepage": "https://github.com/OpenST/mosaic-proof#readme",
+  "scripts": {
+    "lint:ts": "eslint src -c .eslintrc.json --ext ts",
+    "lint:ts-fix": "eslint src -c .eslintrc.json --ext ts --fix",
+    "compile:ts": "tsc",
+    "clean": "rm -r lib 2> /dev/null || true",
+    "build:package": "npm run prepare:publish && npm pack",
+    "prepare:publish": "npm run clean && npm run compile:ts"
+  },
+  "dependencies": {
+    "@types/web3": "1.0.19",
+    "web3": "1.0.0-beta.55",
+    "typescript": "3.5.1",
+    "rlp": "2.2.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "1.10.2",
+    "@typescript-eslint/parser": "1.10.2",
+    "@typescript-eslint/typescript-estree": "1.10.2",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.17.3",
+    "eslint-plugin-json": "1.4.0"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ]
 }

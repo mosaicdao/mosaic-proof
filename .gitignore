@@ -7,8 +7,18 @@ tags
 # Dependency directories
 node_modules/
 
+# Build directories
+lib/
+
 # Typescript compiler (tsc) generated files.
 src/*.js
 src/*.js.map
 src/**/*.js
 src/**/*.js.map
+test/*.js
+test/*.js.map
+test/**/*.js
+test/**/*.js.map
+
+# Tarball
+openst-mosaic-proof-*.tgz
