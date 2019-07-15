@@ -122,7 +122,7 @@ class ProofGenerator {
    * @param address Address of ethereum account for which proof needs to be generated.
    * @param storageKeys Array of keys for a mapping in solidity.
    * @param blockNumber Block number in hex.
-   * @return {Promise<Object>}
+   * @return Promise that resolves to proof object.
    */
   private static async fetchProof(
     web3: Web3,
