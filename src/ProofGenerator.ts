@@ -46,7 +46,7 @@ class ProofGenerator {
   public async getInboxProof(
     address: string,
     keys: string[] = [],
-    blockNumber: string,
+    blockNumber?: string,
     messageInboxOffset?: string,
   ): Promise<ProofData> {
     return ProofGenerator.getProof(
@@ -69,7 +69,7 @@ class ProofGenerator {
   public async getOutboxProof(
     address: string,
     keys: string[] = [],
-    blockNumber: string,
+    blockNumber?: string,
     messageOutboxOffset?: string,
   ): Promise<ProofData> {
     return ProofGenerator.getProof(
@@ -99,12 +99,8 @@ class ProofGenerator {
   ): Promise<ProofData> {
     let proofBlockNumber = blockNumber;
     if (!proofBlockNumber) {
-      try {
-        const block = await web3.eth.getBlock('latest');
-        proofBlockNumber = web3.utils.toHex(block.number);
-      } catch (exception) {
-        return Promise.reject(exception);
-      }
+      const block = await web3.eth.getBlock('latest');
+      proofBlockNumber = web3.utils.toHex(block.number);
     }
     const storageKey = ProofGenerator.storagePath(index, keys);
     return ProofGenerator.fetchProof(web3, address, [storageKey], proofBlockNumber).then(
